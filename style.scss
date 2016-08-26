@@ -1,0 +1,39 @@
+/*!
+Theme Name: Connect Bristol Theme
+Theme URI: http://html5reset.org
+Description: A style-free theme to get you started on an HTML5-based WordPress theme of your own.
+Author: Monkey Do! + @ckhicks
+Author URI: http://monkeydo.biz
+Version: 2.0
+License: BSD 2-Clause
+License URI: http://opensource.org/licenses/bsd-license.php
+*/
+
+/* Ok, this is where the fun starts.
+-------------------------------------------------------------------------------*/
+
+@import "reset.scss";
+@import "_globals.scss";
+@import "_nav.scss";
+@import "_home.scss";
+@import "_form.scss";
+@import "_reef.scss";
+@import "_footer.scss";
+
+
+body {font: 13px 'fira-sans', Helmet, Freesans, sans-serif;}
+body, select, input, textarea {color: $accentK;}
+
+/* Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301) */
+::-moz-selection{background: $accentK; color: #fff; text-shadow: none;}
+::selection {background: $accentK; color: #fff; text-shadow: none;}
+
+/*	j.mp/webkit-tap-highlight-color */
+a:link {-webkit-tap-highlight-color: $accentK;}
+
+ins {background-color: #fcd700; color: #000; text-decoration: none;}
+mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: bold;}
+
+/* Mozilla dosen't style place holders by default */
+input:-moz-placeholder { color:rgba($accentK, 0.6); }
+textarea:-moz-placeholder { color:rgba($accentK, 0.6); }

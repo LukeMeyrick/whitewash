@@ -1,0 +1,55 @@
+
+.footer__social-con {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 2.5vw;
+  transition: opacity 0.3s $ease, filter 0.3s $ease;
+}
+
+.social--out {
+  opacity: 0;
+  filter: blur(1px);
+  visibility: hidden;
+}
+
+.social-con__icon {
+  border: 2px solid rgba($accentK, 0.5);
+  border-radius: 50%;
+  transition: 0.5s $ease;
+  position: relative;
+
+  span {
+    transition: 0.4s $ease;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: rgba($accentK, 0.5);
+    border: 2px solid rgba($accentK, 0);
+
+    span {
+      color: white;
+    }
+  }
+}
+
+.footer__social-con__icon {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+
+  &:nth-of-type(1) {
+    margin-right: 1vw;
+  }
+
+  @media (min-width: $mamaBear) {
+    display: block;
+
+    &:nth-of-type(1) {
+      margin-right: 0;
+      margin-bottom: 1vw;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+
+.section-con {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+
+
+// active/inactive classes
+
+.active {
+  opacity: 0;
+  transition: visibility 0s;
+  visibility: visible;
+
+  animation: section-active 0.6s $ease forwards 0.5s;
+
+  @keyframes section-active {
+    0%{transform: translate3d(0,-2vh,0); opacity: 0; filter: blur(1px)}
+    100%{transform: translate3d(0,0,0); opacity: 1; filter: blur(0px)}
+  }
+}
+
+.inactive {
+  opacity: 1;
+  transition: visibility 0s 1.1s;
+  visibility: hidden;
+
+  animation: section-inactive 0.6s $ease forwards;
+
+  @keyframes section-inactive {
+    0%{transform: translate3d(0,0,0); opacity: 1; filter: blur(0px)}
+    100%{transform: translate3d(0,2vh,0); opacity: 0; filter: blur(1px)}
+  }
+}
+
+
+
+// section copy
+
+.section-con__copy-con { // container
+  padding: 10vw;
+  color: $accentK;
+  font-size: 1.3em;
+  text-align: center;
+  width: 100%;
+  max-width: $babyBear;
+
+  @media (min-width: $mamaBear) {
+    padding: 0;
+    max-width: $teenBear;
+    width: 90%;
+  }
+
+  @media (min-width: $giantBear) {
+    max-width: $mamaBear;
+  }
+
+  span {
+    display: block;
+  }
+}
+
+.section-con__copy-con__title { // section title
+  color: rgba($accentK, 0.4);
+  font-size: 1.45em;
+  letter-spacing: 0.2em;
+}
+
+.section-con__copy-con__copy {
+  letter-spacing: 0.02em;
+  margin: 2vh auto 3.5vh;
+  max-width: $babyBear;
+}

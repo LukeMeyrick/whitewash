@@ -1,0 +1,283 @@
+$babyBear:480px;
+$teenBear:600px;
+$teenMamaBear:650px;
+$mamaBear:750px;
+$mamaPapaBear:900px;
+$papaBear:1023px;
+$sumoBear:1200px;
+$giantBear:1400px;
+
+$accentK: #0b0b38;
+$accentW: #fcfcfc;
+
+$copyFont: "azo-sans-web",sans-serif;
+$titleFont: "hwt-van-lanen",serif;
+
+$ease: cubic-bezier(.34,.01,.35,.98);
+$easy: cubic-bezier(1,0,0,1);
+
+$coral: linear-gradient(270deg, #f89700, #fff446, #15f0e5);
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 1.6em;
+}
+
+a {
+  text-decoration: none;
+  color: $accentK;
+  -webkit-tap-highlight-color: rgba(0,0,0,0.1) !important;
+}
+
+a:hover
+{
+  color:$accentK;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+#header {
+  position: relative;
+}
+
+#wrapper {
+  overflow: hidden;
+  min-height: 100vh;
+  font-size: 0.7em;
+
+  @media (min-width: $babyBear) {
+    font-size: 0.8em;
+  }
+
+  @media (min-width: $mamaBear) {
+    font-size: 0.9em;
+  }
+
+  @media (min-width: $papaBear) {
+    font-size: 1em;
+  }
+
+  @media (min-width: $giantBear) {
+    font-size: 1.06em;
+  }
+
+}
+
+
+
+// Remove Button Styling
+
+.buttonNoStyle {
+  -webkit-border-radius:0;
+  border-radius:0;
+  -webkit-appearance: none;
+  border: none;
+  background: none;
+  outline: 0;
+  font-weight: 400;
+  font-size: 1em;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  background: none;
+  border: 0;
+  color: inherit;
+  /* cursor: default; */
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-appearance: button; /* for input */
+  -webkit-user-select: none; /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+// button styling
+
+.button {
+  border-radius: 5em;
+  padding: 0.8em 1.4em;
+  line-height: 1.6em;
+  overflow: hidden;
+  transition: 0.3s $ease, opacity 0.5s;
+  position: relative;
+  box-shadow: inset 0px 0px 0px 2px rgba($accentK,0.3);
+  color: $accentK;
+
+  &:first-letter {
+    text-transform: capitalize;
+  }
+
+  &:before {
+    transition: 0.3s $ease;
+    overflow: hidden;
+    z-index: -1;
+    opacity: 0;
+    background: $coral;
+    animation: gradient-move 35s ease infinite;
+    background-size: 1500vw 1500vh;
+  }
+
+  &:before {
+    content: '';
+    border-radius: 5em;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    opacity:0;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: inset 0px 0px 0px 2px rgba($accentK,0);
+    color: rgba($accentK, 0.4);
+
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
+.button--active {
+  box-shadow: inset 0px 0px 0px 2px rgba($accentK,0);
+  color: rgba($accentK, 0.4);
+
+  &:before {
+    opacity: 1;
+  }
+}
+
+.button--active--empty { // empty field error button
+  box-shadow: inset 0px 0px 0px 2px rgba($accentK,0);
+  color: rgba($accentK, 0.4);
+  background: lighten(red, 30);
+}
+
+
+
+//hide stuff accessibly where needed
+
+.element-invisible, .screen-reader-text {
+  position: absolute !important;
+	margin-left: -10000px !important;
+	overflow-x: hidden;
+}
+
+// Clear float
+
+.cf:before,
+.cf:after {
+    content: ""; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}
+
+*:focus {
+	outline: 0;
+}
+
+//hide stuff accessibly where needed
+
+.element-invisible, .screen-reader-text {
+  position: absolute !important;
+	margin-left: -10000px !important;
+	overflow-x: hidden;
+}
+
+
+// Fade Animation
+
+@keyframes fd {
+  0%{opacity: 0;}
+  100%{opacity: 1; transform: translate3d(0,0,0)}
+}
+
+
+// center element
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%,0);
+}
+
+
+
+
+// gradient
+
+.gradient-con {
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.gradient-con--bk {
+  background: $coral;
+  background-size: 1500% 1500%;
+
+  animation: gradient-move 35s ease infinite;
+
+  @keyframes gradient-move {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+}
+
+.gradient-con--cover {
+  background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(255,255,255,0.5) 85%);
+  background-size: 300% 300%;
+  background-position: 20% 50%;
+  transition: background-position 2s $ease;
+}
+
+.stage--1 .gradient-con--cover {
+  background-position: 50% 50%;
+}
+
+.stage--2 .gradient-con--cover {
+  background-position: 75% 50%;
+}
+
+.stage--3 .gradient-con--cover {
+  background-position: 90% 50%;
+}
+
+.stage--4 .gradient-con--cover {
+  background-position: 100% 50%;
+  opacity: 0.25;
+  transition: background-position 1s $ease, opacity 1s $ease 0.3s;
+}
+
+
+
+// font styles
+
+.title {
+  font-family: $titleFont;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: $accentK;
+}
+
+.copy {
+  font-family: $copyFont;
+  font-weight: 600;
+  color: $accentK;
+}
